@@ -31,6 +31,7 @@
         <avro.version>1.11.3</avro.version>
         <confluent.version>8.0.0</confluent.version>
         <spring-cloud.version>2025.0.0</spring-cloud.version>
+        <spring-cloud-aws.version>3.1.1</spring-cloud-aws.version>
     </properties>
 	<dependencies>
         <dependency>
@@ -48,6 +49,24 @@
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 
+		<!-- Spring Cloud Starter Bootstrap - Required for bootstrap.properties in Spring Boot 3 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+
+		<!-- AWS Parameter Store Integration for Spring Boot 3 -->
+		<dependency>
+			<groupId>io.awspring.cloud</groupId>
+			<artifactId>spring-cloud-aws-starter-parameter-store</artifactId>
+		</dependency>
+
+		<!-- AWS SDK for Systems Manager (Parameter Store) -->
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>ssm</artifactId>
+		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -58,8 +77,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-
-
+			<dependency>
+				<groupId>io.awspring.cloud</groupId>
+				<artifactId>spring-cloud-aws-dependencies</artifactId>
+				<version>${spring-cloud-aws.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
         </dependencies>
 	</dependencyManagement>
 
