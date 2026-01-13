@@ -1,4 +1,4 @@
-package com.example.Switchboard.config.server;
+package com.Switchboard.ConfigServer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
